@@ -1,0 +1,450 @@
+:root {
+  --primary: #1a6bcc;
+  --secondary: #3a7bd5;
+  --danger: #ff4b2b;
+  --success: #00f260;
+  --glass: rgba(255, 255, 255, 0.1);
+  --eye-grey: #c0c0c0;
+  --eye-dark: #111111;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #0f0c29;
+  background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  height: 100dvh;
+  width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.screen.active {
+  display: flex;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Welcome Screen Styling */
+#welcomeScreen {
+  background: #1a1a1a;
+}
+
+.logo-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.glow-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 4rem;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #c8d8f0 0%, #7aa8d8 45%, #4a80b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px rgba(120, 160, 210, 0.35));
+  margin: 6px 0 0;
+}
+
+.logo-container p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #8a9bb0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 4px 0 0;
+}
+
+/* Grey Glowing Orb */
+.grey-orb {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0d0d0d 0%, #111 55%, #161616 100%);
+  border: 2px solid rgba(190, 190, 190, 0.55);
+  box-shadow:
+    0 0 14px 5px rgba(170, 170, 170, 0.55),
+    0 0 38px 14px rgba(140, 140, 140, 0.28),
+    0 0 80px 32px rgba(110, 110, 110, 0.12),
+    inset 0 0 35px rgba(0, 0, 0, 0.75);
+  margin-bottom: 24px;
+  animation: greyOrbPulse 3s ease-in-out infinite;
+}
+
+@keyframes greyOrbPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 14px 5px rgba(170, 170, 170, 0.55),
+      0 0 38px 14px rgba(140, 140, 140, 0.28),
+      0 0 80px 32px rgba(110, 110, 110, 0.12),
+      inset 0 0 35px rgba(0, 0, 0, 0.75);
+  }
+
+  50% {
+    box-shadow:
+      0 0 22px 9px rgba(210, 210, 210, 0.72),
+      0 0 55px 24px rgba(170, 170, 170, 0.42),
+      0 0 110px 50px rgba(130, 130, 130, 0.18),
+      inset 0 0 35px rgba(0, 0, 0, 0.75);
+  }
+}
+
+@keyframes pulse-opacity {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/* Language Screen */
+#languageScreen {
+  background: #1a1a1a;
+}
+
+/* Top-left logo bar — Language & Start screens */
+.nav-brand {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 20;
+}
+
+.nav-orb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #1a1a2e 0%, #111 60%, #161616 100%);
+  border: 1.5px solid rgba(190, 190, 190, 0.5);
+  box-shadow:
+    0 0 8px 2px rgba(170, 170, 170, 0.4),
+    0 0 18px 6px rgba(120, 160, 210, 0.2);
+  flex-shrink: 0;
+  animation: greyOrbPulse 3s ease-in-out infinite;
+}
+
+.nav-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #ffffff 0%, #c8d8f0 60%, #7aa8d8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 6px rgba(120, 160, 210, 0.3));
+}
+
+.glass-card {
+  background: #242424;
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 40px 32px;
+  width: min(400px, 85%);
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card h2 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #8a9bb0;
+  margin: 0 0 28px;
+}
+
+.lang-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  margin-top: 0;
+}
+
+.lang-buttons button {
+  flex: 1;
+  padding: 40px 20px;
+  border-radius: 20px;
+  border: 1px solid #3a3a3a;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: #2c2c2c;
+  color: #c8d4e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 300px;
+}
+
+.btn-flag {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.btn-label {
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+}
+
+.lang-buttons button:hover {
+  background: #333;
+  border-color: #555;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+.btn-en {
+  border-bottom: 3px solid #4a80b8 !important;
+}
+
+.btn-hi {
+  border-bottom: 3px solid #8a6bbf !important;
+}
+
+/* Start Screen */
+#startScreen {
+  background: #1a1a1a;
+}
+
+.full-start {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.pulse-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #242424;
+  border: 2px solid #3a3a3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  color: #7aa8d8;
+  box-shadow:
+    0 0 18px 4px rgba(120, 168, 216, 0.25),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+.full-start span {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #8a9bb0;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 18px 4px rgba(120, 168, 216, 0.25),
+      inset 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1);
+  }
+
+  50% {
+    box-shadow:
+      0 0 32px 10px rgba(120, 168, 216, 0.45),
+      inset 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.04);
+  }
+}
+
+/* Camera Screen Layout — 10% header / 60% camera / 30% stop */
+#cameraScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+/* Top 10% — Vision AI logo bar (camera screen override) */
+#cameraScreen .nav-brand {
+  position: relative;
+  top: auto;
+  left: auto;
+  height: 10dvh;
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 18px;
+  gap: 10px;
+  background: rgba(15, 12, 41, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Middle 60% — camera feed */
+.camera-viewport {
+  position: relative;
+  height: 60dvh;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.camera-viewport video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.camera-viewport canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+#statusBox {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 18px;
+  background: rgba(26, 26, 26, 0.92);
+  border: 1px solid #333;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #8a9bb0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  max-width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bottom 30% — full width stop button */
+#stopBtn {
+  height: 30dvh;
+  width: 100%;
+  background: #2c1414;
+  border: none;
+  border-top: 2px solid #6b2424;
+  border-radius: 0;
+  color: #e87a7a;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  z-index: 10;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+#stopBtn .stop-icon {
+  font-size: 2rem;
+  display: block;
+}
+
+#stopBtn:hover,
+#stopBtn:active {
+  background: #3d1a1a;
+  color: #ff9999;
+}
+
+button,
+.full-start {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tap-hint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 12px;
+  letter-spacing: 0.05em;
+  animation: pulse-opacity 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-opacity {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}

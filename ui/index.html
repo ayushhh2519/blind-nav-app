@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Vision AI – Your Personal Navigator</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Outfit:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+</head>
+
+<body>
+
+  <!-- Welcome Screen -->
+  <div id="welcomeScreen" class="screen active">
+    <div class="logo-container">
+      <div class="grey-orb"></div>
+      <h1 class="glow-text">VISION AI</h1>
+      <p>Your Personal Navigator</p>
+      <p class="tap-hint">Tap Anywhere to Start</p>
+    </div>
+  </div>
+
+  <!-- Language Screen -->
+  <div id="languageScreen" class="screen">
+    <div class="nav-brand">
+      <div class="nav-orb"></div>
+      <span class="nav-title">VISION AI</span>
+    </div>
+    <div class="glass-card">
+      <h2>Select Language</h2>
+      <div class="lang-buttons">
+        <button onclick="selectLanguage('en')" class="btn-en">
+          <span class="btn-flag">🇬🇧</span>
+          <span class="btn-label">ENGLISH</span>
+        </button>
+        <button onclick="selectLanguage('hi')" class="btn-hi">
+          <span class="btn-flag">🇮🇳</span>
+          <span class="btn-label">हिंदी</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Start Screen -->
+  <div id="startScreen" class="screen">
+    <div class="nav-brand">
+      <div class="nav-orb"></div>
+      <span class="nav-title">VISION AI</span>
+    </div>
+    <div id="startBtn" class="full-start">
+      <div class="pulse-icon">▶</div>
+      <span>TAP TO ACTIVATE</span>
+    </div>
+  </div>
+
+  <!-- Camera Screen -->
+  <div id="cameraScreen" class="screen">
+    <div class="nav-brand">
+      <div class="nav-orb"></div>
+      <span class="nav-title">VISION AI</span>
+    </div>
+    <div class="camera-viewport">
+      <div id="statusBox">Initialising...</div>
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="canvas"></canvas>
+    </div>
+    <button id="stopBtn">
+      <span class="stop-icon">⏹</span>
+      <span class="stop-label">STOP</span>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
