@@ -34,7 +34,7 @@ html {
 
 .screen.active {
   display: flex;
-  animation: fadeIn 0.5s ease;
+  animation: fadeIn 0.3s;
 }
 
 @keyframes fadeIn {
